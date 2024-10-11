@@ -8,4 +8,5 @@ class Null4uApplication
 
 fun main(args: Array<String>) {
 	runApplication<Null4uApplication>(*args)
+	var a = null
 }
