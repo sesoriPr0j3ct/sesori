@@ -15,3 +15,5 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
+
+JWT_SECRET_KEY: "U3VwZXJTZWNyZXRQYXNzd29yZEV4YW1wbGUyMDI0"
