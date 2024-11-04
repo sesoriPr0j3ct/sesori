@@ -1,7 +1,6 @@
 server:
   port: 8081
 
-
 spring:
   application:
     name: "null4u"
@@ -15,3 +14,6 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
+
+  jwt:
+    secret-key: "U3VwZXJTZWNyZXRQYXNzd29yZEV4YW1wbGUyMDI0"  # 내부 설정으로 위치 변경
