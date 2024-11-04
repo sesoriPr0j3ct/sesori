@@ -16,4 +16,4 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
 
   jwt:
-    secret-key: "U3VwZXJTZWNyZXRQYXNzd29yZEV4YW1wbGUyMDI0"  # 내부 설정으로 위치 변경
+    secret-key: "U3VwZXJTZWNyZXRQYXNzd29yZEV4YW1wbGUyMDI0"
