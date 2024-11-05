@@ -13,4 +13,8 @@ class UsersService @Autowired constructor(
     fun getAllUsers(): List<User> {
         return usersRepository.findAll()
     }
+
+    fun createUser(user: User): User {
+        return usersRepository.save(user)
+    }
 }
