@@ -17,8 +17,4 @@ class UsersService @Autowired constructor(
     fun createUser(user: User) {
         usersRepo.save(user)
     }
-
-    fun createUser(user: User): User {
-        return usersRepository.save(user)
-    }
 }
