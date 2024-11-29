@@ -4,6 +4,8 @@ import com.sesori.null4u.dto.PostRequestDto
 import com.sesori.null4u.entity.Post
 import com.sesori.null4u.service.PostService
 import com.sesori.null4u.util.DateTimeUtil
+import com.sesori.null4u.vo.PostListVo
+import com.sesori.null4u.vo.toListVo
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -13,9 +15,14 @@ import org.springframework.web.bind.annotation.*
 class PostController(val postService: PostService) {
 
     @GetMapping("/lists")
-    fun getPosts(): List<Post> {
-        return postService.getAll()
+    fun getPosts(): List<PostListVo> {
+        val posts =  postService.getAll()
+
+        return posts.map { it.toListVo()}
     }
+
+
+
 
     /*@PostMapping("/create")
     fun createPost(@RequestBody post: Post) {
