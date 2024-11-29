@@ -26,4 +26,7 @@ class PostService @Autowired constructor(
         postRepo.delete(post)
     }
 
+    fun getAllSortedByPostIdx(): List<Post> {
+        return postRepo.findAllByOrderByPostIdxDesc()
+    }
 }

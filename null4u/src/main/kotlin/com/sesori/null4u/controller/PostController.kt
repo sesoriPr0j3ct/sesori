@@ -16,7 +16,7 @@ class PostController(val postService: PostService) {
 
     @GetMapping("/lists")
     fun getPosts(): List<PostListVo> {
-        val posts = postService.getAll()
+        val posts = postService.getAllSortedByPostIdx()
 
         return posts.map { post ->
             val formattedCreatedAt = DateTimeUtil.formatDate(post.createdAt)

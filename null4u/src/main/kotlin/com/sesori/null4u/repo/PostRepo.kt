@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface PostRepo : JpaRepository<Post, Long> {
+    fun findAllByOrderByPostIdxDesc(): List<Post>
 }
