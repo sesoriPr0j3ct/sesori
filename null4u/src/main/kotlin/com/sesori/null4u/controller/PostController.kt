@@ -16,18 +16,14 @@ class PostController(val postService: PostService) {
 
     @GetMapping("/lists")
     fun getPosts(): List<PostListVo> {
-        val posts =  postService.getAll()
+        val posts = postService.getAll()
 
-        return posts.map { it.toListVo()}
+        return posts.map { post ->
+            val formattedCreatedAt = DateTimeUtil.formatDate(post.createdAt)
+
+            post.toListVo().copy(createdAt = formattedCreatedAt)
+        }
     }
-
-
-
-
-    /*@PostMapping("/create")
-    fun createPost(@RequestBody post: Post) {
-        return postService.createPost(post)
-    }*/
 
     @PostMapping("/create")
     fun createPost(@RequestBody postRequest: PostRequestDto) {

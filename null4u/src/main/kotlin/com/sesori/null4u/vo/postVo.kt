@@ -7,7 +7,7 @@ data class PostListVo(
     val postIdx: Long,
     val userName: String?,
     val contentTitle: String,
-    val createdAt: LocalDateTime,
+    val createdAt: String?,
     val viewCount: Int,
     val likeCount: Int,
     val commentCount: Int
@@ -17,7 +17,7 @@ fun Post.toListVo() = PostListVo(
     postIdx = postIdx,
     userName = user?.userName,
     contentTitle = contentTitle,
-    createdAt = createdAt,
+    createdAt = createdAt.toString(),
     viewCount = viewCount,
     likeCount = likeCount,
     commentCount = commentCount
