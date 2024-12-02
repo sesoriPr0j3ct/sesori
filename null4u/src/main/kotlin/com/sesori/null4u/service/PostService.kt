@@ -29,4 +29,10 @@ class PostService @Autowired constructor(
     fun getAllSortedByPostIdx(): List<Post> {
         return postRepo.findAllByOrderByPostIdxDesc()
     }
+
+    fun getPostDetail(idx: Long): Post {
+        return postRepo.findById(idx).orElseThrow {
+            IllegalArgumentException("Post not found with id: $idx")
+        }
+    }
 }

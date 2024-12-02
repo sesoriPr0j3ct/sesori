@@ -4,8 +4,7 @@ import com.sesori.null4u.dto.PostRequestDto
 import com.sesori.null4u.entity.Post
 import com.sesori.null4u.service.PostService
 import com.sesori.null4u.util.DateTimeUtil
-import com.sesori.null4u.vo.PostListVo
-import com.sesori.null4u.vo.toListVo
+import com.sesori.null4u.vo.*
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -40,5 +39,10 @@ class PostController(val postService: PostService) {
         )
     }
 
+    @GetMapping("/view/{postIdx}")
+    fun getPostDetail(@PathVariable postIdx: Long): PostViewVo {
+        val post = postService.getPostDetail(postIdx)
+        return post.toViewVo()
+    }
 
 }
