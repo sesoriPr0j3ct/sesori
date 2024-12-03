@@ -6,6 +6,8 @@ spring:
     name: "null4u"
   config:
     import: classpath:/application-secrets.yml
+  cors:
+    allowed-origins: "http://localhost:5173"
   datasource:
     url: ${datasource.url}
     username: ${datasource.username}
