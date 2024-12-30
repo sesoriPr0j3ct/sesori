@@ -9,7 +9,9 @@ import org.springframework.http.ResponseEntity
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.web.bind.annotation.*
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.concurrent.TimeUnit
 
 @RestController
 //@CrossOrigin("*")
@@ -78,5 +80,18 @@ class UsersController(
         return ResponseEntity.ok("로그인 성공")
     }
 
+    @PostMapping("/logout")
+    fun logout(response: HttpServletResponse): ResponseEntity<String> {
+        // 1. JWT 쿠키 삭제
+        val cookie = Cookie("JWT", "").apply {
+            path = "/" // 애플리케이션 전역 경로
+            isHttpOnly = true
+            secure = true // HTTPS 환경에서만 사용
+            maxAge = 0 // 쿠키 삭제
+        }
+        response.addCookie(cookie)
 
-}
+        // 2. 로그아웃 성공 응답
+        return ResponseEntity.ok("로그아웃 성공")
+    }
+    }
